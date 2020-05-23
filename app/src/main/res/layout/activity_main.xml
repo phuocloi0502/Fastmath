@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#37384D"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="FAST MATH"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="GAME"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="italic|bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="BEST SCORE"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="SCORE"
+            android:textColor="#fff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/txvscore"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_play_main"
+            android:text="PLAY"
+            android:textColor="#ffff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/btnplay"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_about_main"
+            android:text="About"
+            android:textColor="#ffff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/btnabout"/>
+    </LinearLayout>
+
+</LinearLayout>

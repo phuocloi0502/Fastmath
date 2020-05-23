@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#37384D"
+    android:orientation="vertical"
+    android:weightSum="3"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="GAME"
+            android:textColor="#F44336"
+            android:textSize="70sp"
+            android:textStyle="italic|bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="OVER"
+            android:textColor="#F44336"
+            android:textSize="70sp"
+            android:textStyle="italic|bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="YOUR SCORE"
+            android:textColor="#fff"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CORE"
+            android:textColor="#fff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/txvmyscore"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/button_play_main"
+            android:text="TRY AGAIN"
+            android:textColor="#ffff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/btntryagain"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button_about_main"
+            android:text="HOME"
+            android:textColor="#ffff"
+            android:textSize="55sp"
+            android:textStyle="bold"
+            android:id="@+id/btnhome"/>
+    </LinearLayout>
+
+</LinearLayout>
