@@ -2,13 +2,46 @@ package com.example.fastmath;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class overactivity extends AppCompatActivity {
+    TextView txvmyScrore;
+    Button btn_Try, btn_Home;
+    String myCore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_overactivity);
+        txvmyScrore = findViewById(R.id.txvmyscore);
+        btn_Home = findViewById(R.id.btntryagain);
+        btn_Try = findViewById(R.id.btnhome);
+        Intent getScrore = this.getIntent();
+        myCore = getScrore.getStringExtra("d");
+        //  Log.d("gt",myCore);
+        txvmyScrore.setText(myCore);
+        // Toast.makeText(this,myCore,Toast.LENGTH_LONG).show();
+        btn_Try.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(overactivity.this,MainActivity.class);
+                startActivity(intent);
+                overactivity.this.finish();
+            }
+        });
+        btn_Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(overactivity.this,playactivity.class);
+                startActivity(intent);
+                overactivity.this.finish();
+            }
+        });
     }
 }
