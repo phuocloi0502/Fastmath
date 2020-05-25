@@ -22,11 +22,11 @@ public class overactivity extends AppCompatActivity {
         txvmyScrore = findViewById(R.id.txvmyscore);
         btn_Home = findViewById(R.id.btntryagain);
         btn_Try = findViewById(R.id.btnhome);
+        // lay diem
         Intent getScrore = this.getIntent();
         myCore = getScrore.getStringExtra("d");
-        //  Log.d("gt",myCore);
+        //hien diem
         txvmyScrore.setText(myCore);
-        // Toast.makeText(this,myCore,Toast.LENGTH_LONG).show();
         btn_Try.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -24,9 +24,9 @@ public class playactivity extends AppCompatActivity {
     int lv = 0;
     CountDownTimer t;
     int score = 0;
-
     int bestscoreCurrent=0;
     Question mQuestion;
+    SharedPreferences luudiemso;
 
 
     @Override
@@ -34,13 +34,14 @@ public class playactivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playactivity);
-
         btndung = findViewById(R.id.btn_dung);
         btnsai = findViewById(R.id.btn_sai);
         txvTime = findViewById(R.id.txvtime);
         txvScroePlay = findViewById(R.id.txvscoreplay);
         txvBestScrore = findViewById(R.id.txvbestscoreplay);
-        txvBestScrore.setText(String.valueOf(laydiem()));
+        luudiemso=getSharedPreferences("Diemsogame",MODE_PRIVATE);
+        bestscoreCurrent=luudiemso.getInt("diemcuatoi",0);
+        txvBestScrore.setText("BEST: "+String.valueOf(bestscoreCurrent));
         txvPhepTinh = findViewById(R.id.txvpheptinh);
         cauhoi(lv);
         btndung.setOnClickListener(new View.OnClickListener() {
@@ -50,12 +51,22 @@ public class playactivity extends AppCompatActivity {
                     lv++;
                     Toast.makeText(playactivity.this, "Dung", Toast.LENGTH_SHORT).show();
                     t.cancel();
-
                     score++;
+                    if(bestscoreCurrent<score){
+                        luudiem();
+                    }
                     txvScroePlay.setText("SCORE: " + score);
-                    cauhoi(lv);
+                    //delay 1s
+                    new CountDownTimer(1000, 100) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
 
-
+                        }
+                        @Override
+                        public void onFinish() {
+                            cauhoi(lv);
+                        }
+                    }.start();
                 } else {
                     Toast.makeText(playactivity.this, "Sai", Toast.LENGTH_SHORT).show();
                     t.cancel();
@@ -71,10 +82,22 @@ public class playactivity extends AppCompatActivity {
                     lv++;
                     Toast.makeText(playactivity.this, "Dung", Toast.LENGTH_SHORT).show();
                     t.cancel();
-
                     score++;
+                    if(bestscoreCurrent<score){
+                        luudiem();
+                    }
                     txvScroePlay.setText("SCORE: " + score);
-                    cauhoi(lv);
+                    //delay 1s
+                    new CountDownTimer(1000, 100) {
+                        @Override
+                        public void onTick(long millisUntilFinished) {
+
+                        }
+                        @Override
+                        public void onFinish() {
+                            cauhoi(lv);
+                        }
+                    }.start();
 
 
                 } else {
@@ -87,33 +110,11 @@ public class playactivity extends AppCompatActivity {
 
 
     }
-
-    public int kiemtrabestscore(int score, int bestscore) {
-        if (score > bestscore)
-            return score;
-        else return bestscore;
-    }
-
-    public void luudiem( int score,int bestscore) {
-        //tạo đối tượng getSharedPreferences
-        SharedPreferences pre = getSharedPreferences("diem", MODE_PRIVATE);
-        //tạo đối tượng Editor để lưu thay đổi
-        SharedPreferences.Editor editor = pre.edit();
-
-        editor.putInt("diemcuatoi",kiemtrabestscore(score,bestscore));
-        //chấp nhận lưu xuống file
+    public void luudiem() {
+        SharedPreferences.Editor editor = luudiemso.edit();
+        editor.putInt("diemcuatoi",score);
         editor.commit();
     }
-
-    public int laydiem() {
-        SharedPreferences pre = getSharedPreferences
-                ("diem", MODE_PRIVATE);
-        //lấy giá trị checked ra, nếu không thấy thì giá trị mặc định là false
-        int diemlayra = pre.getInt("diemcuatoi", 0);
-        return diemlayra;
-    }
-
-
     public void cauhoi(int lv) {
         txvPhepTinh = findViewById(R.id.txvpheptinh);
         Random stt = new Random();
@@ -161,15 +162,13 @@ public class playactivity extends AppCompatActivity {
 
     public void gameover(Activity activity, int score,int bestscore) {
         t.cancel();
-        luudiem(score,bestscore);
+        // gui qua overlayout
         Intent intent = new Intent(playactivity.this, overactivity.class);
-
-        //   intent.putExtra("diem", score);
         intent.putExtra("d", String.valueOf(score));
-        // playactivity.this.startActivityForResult(intent,123);
+        // gui qua mainlayout
+        Intent intenthome=new Intent(playactivity.this,MainActivity.class);
+        intenthome.putExtra("diemhome",String.valueOf(bestscore));
         activity.finish();
         startActivity(intent);
-
-
     }
 }
