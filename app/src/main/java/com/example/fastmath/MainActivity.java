@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         txvScore = findViewById(R.id.txvscorehome);
         String ht = pr.getString("diem", "0");
 
+
         //luudiem
         SharedPreferences.Editor editor = pr.edit();
         editor.putString("diem", score);
