@@ -165,9 +165,10 @@ public class playactivity extends AppCompatActivity {
         // gui qua overlayout
         Intent intent = new Intent(playactivity.this, overactivity.class);
         intent.putExtra("d", String.valueOf(score));
+        intent.putExtra("dcao", String.valueOf(bestscore));
         // gui qua mainlayout
-        Intent intenthome=new Intent(playactivity.this,MainActivity.class);
-        intenthome.putExtra("diemhome",String.valueOf(bestscore));
+//        Intent intenthome=new Intent(playactivity.this,MainActivity.class);
+//        intenthome.putExtra("diemhome",String.valueOf(bestscore));
         activity.finish();
         startActivity(intent);
     }

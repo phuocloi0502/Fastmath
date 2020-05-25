@@ -13,28 +13,33 @@ public class MainActivity extends AppCompatActivity {
     Button btnPlay, btnAbout;
     TextView txvScore;
     SharedPreferences pr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-     //   pr=getSharedPreferences("luudiemhome",MODE_PRIVATE);
-        Intent laydiem=this.getIntent();
-        String  score=laydiem.getStringExtra("diemhome");
-        txvScore=findViewById(R.id.txvscore);
-        txvScore.setText(score);
+        pr = getSharedPreferences("luudiemhome", MODE_PRIVATE);
+        Intent laydiem = this.getIntent();
+        String score = laydiem.getStringExtra("dh");
+        txvScore = findViewById(R.id.txvscorehome);
+        String ht = pr.getString("diem", "0");
 
-        btnPlay=findViewById(R.id.btnplay);
+        //luudiem
+        SharedPreferences.Editor editor = pr.edit();
+        editor.putString("diem", score);
+        editor.commit();
+        txvScore.setText(ht);
+
+        btnPlay = findViewById(R.id.btnplay);
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,playactivity.class);
+                Intent intent = new Intent(MainActivity.this, playactivity.class);
                 startActivity(intent);
             }
         });
-//        SharedPreferences.Editor editor=pr.edit();
-//        editor.putString("diem",score);
-//        editor.commit();
+
     }
 }
