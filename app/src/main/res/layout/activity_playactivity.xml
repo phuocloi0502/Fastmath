@@ -84,13 +84,14 @@
         <Button
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/imageviewdung"
+
             android:layout_weight="1"
-            android:id="@+id/btn_dung"/>
+            android:id="@+id/btn_dung"
+            android:layout_marginRight="20dp"/>
         <Button
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:background="@drawable/imageviewsai"
+          android:layout_marginLeft="20dp"
             android:layout_weight="1"
             android:id="@+id/btn_sai"/>
 

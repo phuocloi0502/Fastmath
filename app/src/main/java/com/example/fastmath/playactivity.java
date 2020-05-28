@@ -69,7 +69,7 @@ public class playactivity extends AppCompatActivity {
                     }.start();
                 } else {
                     Toast.makeText(playactivity.this, "Sai", Toast.LENGTH_SHORT).show();
-                    t.cancel();
+                t.cancel();
                     gameover(playactivity.this, score,bestscoreCurrent);
                 }
             }
@@ -102,8 +102,8 @@ public class playactivity extends AppCompatActivity {
 
                 } else {
                     Toast.makeText(playactivity.this, "Sai", Toast.LENGTH_SHORT).show();
-                    t.cancel();
-                    gameover(playactivity.this, score,bestscoreCurrent);
+                  t.cancel();
+//                    gameover(playactivity.this, score,bestscoreCurrent);
                 }
             }
         });

@@ -49,12 +49,12 @@ public class Question {
         int pheptinh = r.nextInt(2);
         switch (pheptinh) {
             case 0: { // phep cong
-                if (st) {
+                if (st==true) {
                     kq = soa + sob;
                     hienthi = "" + soa + " + " + sob + " = " + kq;
                     return hienthi;
 
-                } else {
+                } else if(st==false){
                     kq = soa + r.nextInt(3) + sob;
                     hienthi = "" + soa + " + " + sob + " = " + kq;
                     return hienthi;
@@ -62,12 +62,12 @@ public class Question {
 
             }
             case 1: { // phep tru
-                if (st) {
+                if (st==true) {
                     kq = soa - sob;
                     hienthi = "" + soa + " - " + sob + " = " + kq;
                     return hienthi;
-                } else {
-                    kq = soa - r.nextInt(3) + sob;
+                } else if(st==false){
+                    kq = soa - r.nextInt(3) - sob;
                     hienthi = "" + soa + " - " + sob + " = " + kq;
                     return hienthi;
                 }
